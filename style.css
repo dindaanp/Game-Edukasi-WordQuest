@@ -3171,6 +3171,680 @@ body {
   margin-top: 12px;
 }
 
+/* Responsif HP */
+/* Tutorial */
+.tutorial-overlay {
+  padding: 20px;
+  overflow-y: auto !important;
+  align-items: flex-start !important;
+  padding-top: 40px !important;
+}
+
+.tutorial-card {
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+  margin: auto !important;
+}
+
+.tutorial-steps {
+  max-height: 180px !important;
+}
+
+/* Header */
+@media (max-width: 480px) {
+  .header-top-row {
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .mode-badge {
+    font-size: 10px !important;
+    padding: 2px 8px !important;
+  }
+
+  .mode-badge-img {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .level-badge {
+    font-size: 9px !important;
+    padding: 2px 8px !important;
+    margin-left: 2px !important;
+  }
+
+  .level-badge::before {
+    font-size: 8px !important;
+  }
+
+  .score-badge {
+    font-size: 10px !important;
+    padding: 2px 8px !important;
+    position: static !important;
+    transform: none !important;
+    margin-left: auto !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .lives-display {
+    padding: 2px 6px !important;
+    gap: 2px !important;
+    margin-left: 4px !important;
+  }
+
+  .life-icon {
+    font-size: 12px !important;
+  }
+
+  .back-circle.dark {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .back-circle.dark svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .game-header {
+    padding: 6px 10px !important;
+    gap: 4px !important;
+  }
+
+  .progress-bar {
+    height: 6px !important;
+  }
+
+  .progress-wrap span {
+    font-size: 10px !important;
+    min-width: 30px !important;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .game-header {
+    padding: 4px 10px !important;
+    gap: 2px !important;
+  }
+
+  .header-top-row {
+    gap: 3px !important;
+  }
+
+  .mode-badge {
+    font-size: 9px !important;
+    padding: 2px 6px !important;
+  }
+
+  .mode-badge-img {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .level-badge {
+    font-size: 8px !important;
+    padding: 1px 6px !important;
+  }
+
+  .level-badge::before {
+    font-size: 7px !important;
+  }
+
+  .score-badge {
+    font-size: 9px !important;
+    padding: 1px 6px !important;
+  }
+
+  .lives-display {
+    padding: 1px 4px !important;
+    gap: 1px !important;
+  }
+
+  .life-icon {
+    font-size: 10px !important;
+  }
+
+  .back-circle.dark {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .back-circle.dark svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .progress-bar {
+    height: 4px !important;
+  }
+
+  .progress-wrap span {
+    font-size: 9px !important;
+    min-width: 24px !important;
+  }
+
+  .game-body {
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+
+  /* Tutorial di landscape */
+  .tutorial-card {
+    max-width: 70% !important;
+    max-height: 80vh !important;
+    padding: 12px 16px !important;
+  }
+
+  .tutorial-card h3 {
+    font-size: 16px !important;
+  }
+
+  .tutorial-steps {
+    max-height: 80px !important;
+  }
+
+  .tutorial-step {
+    padding: 4px 0 !important;
+  }
+
+  .tutorial-step-icon {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px !important;
+  }
+
+  .tutorial-step-text {
+    font-size: 10px !important;
+  }
+
+  .tutorial-step-text strong {
+    font-size: 11px !important;
+  }
+
+  .tutorial-tip {
+    font-size: 9px !important;
+    padding: 4px 8px !important;
+    margin: 6px 0 !important;
+  }
+
+  .tutorial-btn {
+    font-size: 11px !important;
+    padding: 6px 12px !important;
+    margin-top: 6px !important;
+  }
+
+  .tutorial-dont-show {
+    font-size: 9px !important;
+    margin-top: 4px !important;
+  }
+}
+
+/* Konfirmasi */
+@media (max-width: 480px) {
+  .modal-confirm {
+    padding: 20px !important;
+    max-width: 300px !important;
+  }
+
+  .modal-confirm h3 {
+    font-size: 20px !important;
+  }
+
+  .modal-confirm p {
+    font-size: 13px !important;
+  }
+
+  .modal-btn {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Home */
+@media (max-width: 480px) {
+  .home-content {
+    padding: 10px 12px 60px !important;
+    gap: 12px !important;
+  }
+
+  .logo-img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  .logo-title {
+    font-size: 30px !important;
+  }
+
+  .logo-sub {
+    font-size: 12px !important;
+  }
+
+  .home-modes {
+    gap: 8px !important;
+  }
+
+  .mode-card {
+    padding: 10px 6px !important;
+    gap: 4px !important;
+  }
+
+  .mode-icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .mode-name {
+    font-size: 11px !important;
+  }
+
+  .mode-desc {
+    font-size: 8px !important;
+  }
+
+  .stat-chip-top {
+    font-size: 10px !important;
+    padding: 4px 12px !important;
+  }
+
+  .stat-chip-top strong {
+    font-size: 12px !important;
+  }
+
+  .sound-toggle {
+    font-size: 12px !important;
+    padding: 4px 12px !important;
+    top: 12px !important;
+    right: 12px !important;
+  }
+
+  .credit-button {
+    font-size: 12px !important;
+    padding: 6px 14px !important;
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+
+  .home-stats-left {
+    top: 12px !important;
+    left: 12px !important;
+    gap: 4px !important;
+  }
+}
+
+/* Level */
+@media (max-width: 480px) {
+  #screen-level-select {
+    padding-top: 50px !important;
+  }
+
+  .level-select-title {
+    font-size: 22px !important;
+  }
+
+  .level-icon-img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .level-select-subtitle {
+    font-size: 12px !important;
+    padding: 3px 12px !important;
+  }
+
+  .level-grid {
+    gap: 12px 16px !important;
+    padding: 10px 5px !important;
+  }
+
+  .level-btn {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .level-btn .lvl-number {
+    font-size: 16px !important;
+  }
+
+  .level-btn .lvl-emoji {
+    font-size: 14px !important;
+  }
+
+  .level-btn .lvl-diff {
+    font-size: 6px !important;
+    padding: 1px 4px !important;
+  }
+
+  .level-btn .lvl-stars {
+    font-size: 6px !important;
+  }
+
+  .level-legend {
+    gap: 12px !important;
+    padding: 4px 12px !important;
+  }
+
+  .legend-item {
+    font-size: 10px !important;
+    gap: 4px !important;
+  }
+
+  .legend-dot {
+    width: 10px !important;
+    height: 10px !important;
+  }
+}
+
+/* Result */
+@media (max-width: 480px) {
+  .result-content {
+    padding: 20px 16px !important;
+    gap: 12px !important;
+  }
+
+  .result-emoji-wrap {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .result-emoji-wrap .result-icon {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .result-title {
+    font-size: 28px !important;
+  }
+
+  .result-subtitle {
+    font-size: 13px !important;
+  }
+
+  .result-stats {
+    gap: 10px !important;
+  }
+
+  .rstat {
+    padding: 12px 16px !important;
+  }
+
+  .rstat-val {
+    font-size: 20px !important;
+  }
+
+  .rstat-label {
+    font-size: 10px !important;
+  }
+
+  .result-actions {
+    gap: 8px !important;
+  }
+
+  .result-actions .btn-primary,
+  .result-actions .btn-secondary,
+  #btn-next-level {
+    font-size: 13px !important;
+    padding: 10px 16px !important;
+    min-width: 100px !important;
+  }
+}
+
+/* Credit */
+.credit-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.credit-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  padding: 30px 24px 25px 24px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.credit-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 12px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.credit-avatar-icon {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #A855F7, #7C3AED);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  border: 4px solid white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.credit-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+  border: 4px solid #A855F7;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.credit-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1E3A6F;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.credit-role {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: #A855F7;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.credit-info {
+  background: #F3F4F6;
+  border-radius: 20px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.credit-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.credit-icon {
+  font-size: 18px;
+}
+
+.credit-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.credit-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #A855F7, #7C3AED, #A855F7, transparent);
+  margin: 16px 0;
+}
+
+.credit-course {
+  background: linear-gradient(135deg, #F3E8FF, #EDE9FE);
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.course-badge {
+  display: inline-block;
+  background: #A855F7;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.course-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #5B21B6;
+  margin-bottom: 6px;
+}
+
+.course-institution {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: #6B7280;
+  margin-bottom: 3px;
+}
+
+.course-year {
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px;
+  color: #8B5CF6;
+  font-weight: 700;
+}
+
+.credit-footer {
+  font-family: 'Nunito', sans-serif;
+  font-size: 9px;
+  color: #9CA3AF;
+  margin-top: 12px;
+}
+
+@media (max-width: 480px) {
+  .credit-content {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .credit-card {
+    padding: 20px 16px 18px 16px;
+    border-radius: 28px;
+  }
+
+  .credit-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+  }
+
+  .credit-avatar-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+  }
+
+  .credit-photo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .credit-name {
+    font-size: 18px;
+  }
+
+  .credit-role {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .credit-info {
+    padding: 8px 12px;
+    margin-bottom: 12px;
+  }
+
+  .credit-item {
+    padding: 6px 0;
+    gap: 10px;
+  }
+
+  .credit-icon {
+    font-size: 16px;
+  }
+
+  .credit-text {
+    font-size: 11px;
+  }
+
+  .credit-divider {
+    margin: 12px 0;
+  }
+
+  .credit-course {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .course-badge {
+    font-size: 9px;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+  }
+
+  .course-title {
+    font-size: 13px;
+  }
+
+  .course-institution {
+    font-size: 10px;
+  }
+
+  .course-year {
+    font-size: 9px;
+  }
+
+  .credit-footer {
+    font-size: 8px;
+    margin-top: 10px;
+  }
+
+  .credit-back {
+    width: 32px !important;
+    height: 32px !important;
+    top: 12px !important;
+    left: 12px !important;
+  }
+
+  .credit-back svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
 body {
   overflow-y: auto;
   scrollbar-width: none;

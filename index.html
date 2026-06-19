@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Quest — Game Edukasi Bahasa Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- HOME -->
+  <div id="screen-home" class="screen active">
+    <div class="home-bg">
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b3"></div>
+      <div class="bubble b4"></div>
+    </div>
+    <div class="home-content">
+      <div class="home-stats-left">
+        <div class="stat-chip-top">🏆 Skor Tertinggi: <strong id="home-hiscore">0</strong></div>
+        <div class="stat-chip-top">⭐ Total Bintang: <strong id="home-stars">0</strong></div>
+      </div>
+
+      <!-- SOUND TOGGLE -->
+      <button id="sound-toggle" class="sound-toggle" onclick="toggleSound()">
+        🔇
+      </button>
+
+      <!-- TOMBOL KREDIT -->
+      <button id="credit-button" class="credit-button" onclick="openCreditModal()">
+        📋 Kredit
+      </button>
+
+      <div class="logo-wrap">
+        <div class="logo-icon">
+          <img src="assets/logo fix.png" alt="Word Quest Logo" class="logo-img"
+            onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';" />
+          <span id="logo-fallback"
+            style="display:none; font-size:64px; filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2)); animation: bounce 2s ease-in-out infinite;">📖</span>
+        </div>
+        <h1 class="logo-title">Word<span>Quest</span></h1>
+        <p class="logo-sub">Game Edukasi Bahasa Indonesia</p>
+      </div>
+      <div class="home-modes">
+        <button class="mode-card" onclick="openLevelSelect('anagram')">
+          <img src="assets/ikon-sunta.png" alt="Susun Kata" class="mode-icon"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+          <span class="mode-emoji-fallback" style="display: none;">🔀</span>
+          <span class="mode-name">Susun Kata</span>
+          <span class="mode-desc">Susun huruf yang acak menjadi kata yang tepat!</span>
+        </button>
+        <button class="mode-card" onclick="openLevelSelect('match')">
+          <img src="assets/ikon-cokta.png" alt="Cocokkan Kata" class="mode-icon"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+          <span class="mode-emoji-fallback" style="display: none;">🎯</span>
+          <span class="mode-name">Cocokkan Kata</span>
+          <span class="mode-desc">Pasangkan kata dengan artinya!</span>
+        </button>
+        <button class="mode-card" onclick="openLevelSelect('quiz')">
+          <img src="assets/ikon-kuis.png" alt="Kuis Kilat" class="mode-icon"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+          <span class="mode-emoji-fallback" style="display: none;">💡</span>
+          <span class="mode-name">Kuis Kilat</span>
+          <span class="mode-desc">Pilih jawaban yang tepat!</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL SELECT -->
+  <div id="screen-level-select" class="screen">
+    <div class="level-select-bg">
+      <div class="lvl-bubble lb1"></div>
+      <div class="lvl-bubble lb2"></div>
+      <div class="lvl-bubble lb3"></div>
+      <div class="lvl-bubble lb4"></div>
+    </div>
+
+    <button class="back-circle" onclick="goHome()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
+
+    <div class="level-select-content">
+      <div class="level-title-wrap">
+        <h2 class="level-select-title">
+          <img src="assets/ikon-pilvel.png" alt="Pilih Level" class="level-icon-img">
+          Pilih Level
+        </h2>
+        <p class="level-select-subtitle" id="selected-mode-text">
+          <img id="level-mode-icon" class="level-mode-icon" src="" alt="" style="display: none;">
+          <span id="level-mode-text">Mode Game</span>
+        </p>
+      </div>
+
+      <div class="level-grid" id="level-grid"></div>
+
+      <div class="level-legend">
+        <div class="legend-item"><span class="legend-dot dot-easy"></span> Mudah</div>
+        <div class="legend-item"><span class="legend-dot dot-med"></span> Sedang</div>
+        <div class="legend-item"><span class="legend-dot dot-hard"></span> Sulit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANAGRAM -->
+  <div id="screen-anagram" class="screen">
+    <div class="game-header">
+      <div class="header-top-row">
+        <button class="back-circle dark" onclick="goHome()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <span class="mode-badge anagram">
+          <img src="assets/ikon-sunta.png" alt="Susun Kata" class="mode-badge-img">
+          Susun Kata
+        </span>
+        <span class="level-badge" id="anagram-level">Level 1</span>
+        <span class="score-badge">Poin: <strong id="anagram-score">0</strong></span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar">
+          <div class="progress-fill" id="anagram-progress"></div>
+        </div>
+        <span id="anagram-qnum">1/8</span>
+      </div>
+    </div>
+    <div class="game-body">
+      <div class="anagram-card">
+        <p class="hint-label" id="anagram-hint"></p>
+        <div class="scrambled-display" id="scrambled-display"></div>
+        <div class="answer-slots" id="answer-slots"></div>
+        <div class="letter-bank" id="letter-bank"></div>
+        <div class="anagram-actions">
+          <button class="btn-secondary" onclick="resetAnagram()">🔄 Reset</button>
+          <button class="btn-primary" onclick="checkAnagram()">✓ Cek Jawaban</button>
+        </div>
+        <div class="feedback-box" id="anagram-feedback"></div>
+      </div>
+      <div class="keyboard-hint">
+        <span class="key-hint">⌨️ Ketik huruf</span>
+        <span class="key-hint">⌫ Backspace hapus</span>
+        <span class="key-hint">⏎ Enter cek</span>
+        <span class="key-hint">R Reset</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATCH -->
+  <div id="screen-match" class="screen">
+    <div class="game-header">
+      <div class="header-top-row">
+        <button class="back-circle dark" onclick="goHome()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <span class="mode-badge match">
+          <img src="assets/ikon-cokta.png" alt="Cocokkan Kata" class="mode-badge-img">
+          Cocokkan Kata
+        </span>
+        <span class="level-badge" id="match-level">Level 1</span>
+        <span class="score-badge">Poin: <strong id="match-score">0</strong></span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar">
+          <div class="progress-fill" id="match-progress"></div>
+        </div>
+        <span id="match-info">Pasang semua kata!</span>
+      </div>
+    </div>
+    <div class="game-body">
+      <div class="match-container">
+        <div class="match-col">
+          <h3 class="col-title">Kata</h3>
+          <div id="match-words"></div>
+        </div>
+        <div class="match-lines-svg">
+          <svg id="match-svg" width="100%" height="100%"></svg>
+        </div>
+        <div class="match-col">
+          <h3 class="col-title">Arti</h3>
+          <div id="match-defs"></div>
+        </div>
+      </div>
+      <div class="match-actions">
+        <button class="btn-secondary" onclick="resetMatch()">🔄 Reset</button>
+        <button class="btn-primary" onclick="checkMatch()">✓ Cek Semua</button>
+      </div>
+      <div class="feedback-box" id="match-feedback"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="screen-quiz" class="screen">
+    <div class="game-header">
+      <div class="header-top-row">
+        <button class="back-circle dark" onclick="goHome()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <span class="mode-badge quiz">
+          <img src="assets/ikon-kuis.png" alt="Kuis Kilat" class="mode-badge-img">
+          Kuis Kilat
+        </span>
+        <span class="level-badge" id="quiz-level">Level 1</span>
+        <span class="score-badge">Poin: <strong id="quiz-score">0</strong></span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar">
+          <div class="progress-fill" id="quiz-progress"></div>
+        </div>
+        <span id="quiz-qnum">1/10</span>
+      </div>
+    </div>
+    <div class="game-body">
+      <div class="quiz-card">
+        <div class="quiz-timer-ring">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <circle cx="40" cy="40" r="34" fill="none" stroke="#e0e0e0" stroke-width="6" />
+            <circle id="timer-ring" cx="40" cy="40" r="34" fill="none" stroke="#f5a623" stroke-width="6"
+              stroke-dasharray="213.6" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 40 40)" />
+          </svg>
+          <span id="quiz-timer-text">15</span>
+        </div>
+        <p class="quiz-category" id="quiz-category">Kategori</p>
+        <h2 class="quiz-question" id="quiz-question">Pertanyaan muncul di sini</h2>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="feedback-box" id="quiz-feedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="screen-result" class="screen">
+    <div class="result-bg">
+      <div class="confetti-wrap" id="confetti-wrap"></div>
+    </div>
+    <div class="result-content">
+      <div class="result-emoji-wrap" id="result-emoji-wrap">
+        <img id="result-icon" class="result-icon" src="" alt="Hasil">
+      </div>
+      <h2 class="result-title" id="result-title">Hebat!</h2>
+      <p class="result-subtitle" id="result-subtitle">Kamu menyelesaikan tantangan!</p>
+      <div class="result-stats">
+        <div class="rstat"><span class="rstat-val" id="res-score">0</span><span class="rstat-label">Poin</span></div>
+        <div class="rstat"><span class="rstat-val" id="res-stars">⭐⭐⭐</span><span class="rstat-label">Bintang</span>
+        </div>
+        <div class="rstat"><span class="rstat-val" id="res-correct">0/0</span><span class="rstat-label">Benar</span>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button class="btn-primary" onclick="playAgain()">🔄 Main Lagi</button>
+        <button class="btn-secondary" onclick="goToNextLevel()" id="btn-next-level" style="display:none;">➡️ Level
+          Selanjutnya</button>
+        <button class="btn-secondary" onclick="goHome()">🏠 Menu Utama</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREDIT -->
+  <div id="screen-credit" class="screen">
+    <div class="credit-bg">
+      <div class="credit-bubble cb1"></div>
+      <div class="credit-bubble cb2"></div>
+      <div class="credit-bubble cb3"></div>
+    </div>
+
+    <button class="back-circle credit-back" onclick="closeCredit()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
+
+    <div class="credit-content">
+      <div class="credit-card">
+        <div class="credit-avatar">
+          <img src="assets/dinda.jpg" alt="Foto Dinda Ayu Ningratu Putri" class="credit-photo"
+            onerror="this.style.display='none'; this.parentElement.querySelector('.credit-avatar-icon').style.display='flex';" />
+          <div class="credit-avatar-icon" style="display: none;">👩‍💻</div>
+        </div>
+
+        <h2 class="credit-name">Dinda Ayu Ningratu Putri</h2>
+        <p class="credit-role">Pengembang Game Edukasi</p>
+
+        <div class="credit-info">
+          <div class="credit-item">
+            <span class="credit-icon">📧</span>
+            <span class="credit-text">5025231059@student.its.ac.id</span>
+          </div>
+        </div>
+
+        <div class="credit-divider"></div>
+
+        <div class="credit-course">
+          <div class="course-badge">Tugas Mata Kuliah</div>
+          <h3 class="course-title">Game Edukasi dan Simulasi Informatika</h3>
+          <p class="course-institution">Institut Teknologi Sepuluh Nopember (ITS) Surabaya, Indonesia</p>
+          <p class="course-year">2026</p>
+        </div>
+
+        <div class="credit-footer">
+          <p>© 2026 Word Quest — Belajar Bahasa Indonesia Lebih Menyenangkan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- TUTORIAL -->
+  <div id="tutorial-modal" class="tutorial-overlay">
+    <div class="tutorial-card">
+      <h3>🎮 Cara Bermain</h3>
+      <div id="tutorial-mode-badge" class="tutorial-mode-badge"></div>
+      <div id="tutorial-steps" class="tutorial-steps"></div>
+      <div id="tutorial-tip" class="tutorial-tip"></div>
+      <div class="tutorial-dont-show">
+        <input type="checkbox" id="dont-show-tutorial"> Jangan tampilkan lagi
+      </div>
+      <button class="tutorial-btn" onclick="closeTutorialAndStart()">Mulai Pilih Level!</button>
+    </div>
+  </div>
+</body>
+
+</html>

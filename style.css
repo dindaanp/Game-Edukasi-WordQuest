@@ -958,7 +958,6 @@ body {
 }
 
 /* Game Themes */
-
 /* Anagram */
 #screen-anagram {
   background: linear-gradient(145deg, #FFF5ED, #FFE8DC);
@@ -1095,6 +1094,7 @@ body {
   box-shadow: 0 4px 20px rgba(78, 205, 196, 0.2) !important;
 }
 
+
 #screen-match .mode-badge.match {
   background: linear-gradient(135deg, #4ECDC4, #2DA89E) !important;
   color: #FFFFFF !important;
@@ -1179,6 +1179,7 @@ body {
   border-bottom: 3px solid #B48AD9 !important;
   box-shadow: 0 4px 20px rgba(180, 138, 217, 0.2) !important;
 }
+
 
 #screen-quiz .mode-badge.quiz {
   background: linear-gradient(135deg, #B48AD9, #9B72B3) !important;
@@ -1360,6 +1361,28 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.header-top-row .mode-badge {
+  flex-shrink: 0;
+}
+
+.header-top-row .level-badge {
+  flex-shrink: 0;
+}
+
+.header-top-row .score-badge {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.header-top-row .lives-display {
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .header-info {
@@ -1389,7 +1412,17 @@ body {
   font-size: 14px;
   font-weight: 700;
   color: var(--text);
-  margin-left: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 14px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
 }
 
 .score-badge strong {
